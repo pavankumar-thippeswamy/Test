@@ -2,7 +2,7 @@ pipeline {
 	agent any
 
   stages {
-    stage('build1 and build2')
+	  stage('build1 and build2'){
 	  parallel {
 		stage ('build1') {
 			steps {
@@ -14,12 +14,8 @@ pipeline {
 					fi
 					mvn clean install'''
 			      }
-		       }
-	       }
-         }
-         
-  	stages {
-		stage ('build2') {
+		           }      
+  		stage ('build2') {
 			steps {
 				sh '''  pwd
 					if [[ -d './webapp' ]]; then 
@@ -28,7 +24,9 @@ pipeline {
 						git clone https://github.com/pavankumar-thippeswamy/webapp.git && cd ./webapp
 					fi
 					mvn clean install'''
-			      }
-		       }
-	       }
+			      	}
+		       	     }
+	       		}
 		}
+    	}
+}
