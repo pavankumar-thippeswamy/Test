@@ -2,7 +2,7 @@ pipeline {
 	agent any
 
   stages {
-	  stage('build1 and build2'){
+	  stage ( 'build1 and build2' ) {
 	  parallel {
 		stage ('build1') {
 			steps {
@@ -15,7 +15,7 @@ pipeline {
 					mvn clean install'''
 			      }
 		           }      
-  		stage ('build2') {
+  		stage ( 'build2' ) {
 			steps {
 				sh '''  pwd
 					if [[ -d './webapp' ]]; then 
