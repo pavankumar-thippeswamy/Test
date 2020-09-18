@@ -2,8 +2,8 @@ pipeline {
 	agent any
 
   stages {
-  parallel {
-  stage('build1 and build2')
+    stage('build1 and build2')
+	  parallel {
 		stage ('build1') {
 			steps {
 				sh '''  pwd
